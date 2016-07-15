@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :enrollment do
-    student
+    user
     course
   end
 end

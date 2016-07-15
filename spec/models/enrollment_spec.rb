@@ -6,7 +6,7 @@ RSpec.describe Enrollment, :type => :model do
 
   describe "#associations" do
     it { should belong_to(:course) }
-    it { should belong_to(:student) }
+    it { should belong_to(:user) }
   end
 
 end

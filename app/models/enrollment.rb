@@ -1,7 +1,7 @@
 class Enrollment < ActiveRecord::Base
-  belongs_to :student
+  belongs_to :user
   belongs_to :course, counter_cache: true
 
-  validates :course_id, uniqueness: { scope: :student,
+  validates :course_id, uniqueness: { scope: :user,
                                       message: "already enrolled" }
 end

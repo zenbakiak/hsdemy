@@ -10,4 +10,12 @@ class User < ActiveRecord::Base
 
   has_many :enrollments
 
+  before_create :ensure_token
+
+  def ensure_token
+    begin
+      self.token = Devise.friendly_token(10)
+    end while self.class.exists?(token: self.token)
+  end
+
 end

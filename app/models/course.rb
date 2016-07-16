@@ -3,7 +3,7 @@ class Course < ActiveRecord::Base
   validates :limit, presence: true,
                     numericality: { greater_than: 1 }
 
-  belongs_to :teacher
+  belongs_to :teacher, class_name: 'User', foreign_key: 'teacher_id'
   has_many :enrollments
   has_many :users, through: :enrollments
 

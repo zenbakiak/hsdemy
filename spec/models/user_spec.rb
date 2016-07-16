@@ -13,5 +13,13 @@ RSpec.describe User, :type => :model do
     it { should have_many :courses }
   end
 
+  describe 'On save' do
+    user = FactoryGirl.create :user
+
+    it '.token is not nil' do
+      expect(user.token).to_not eq(nil)
+    end
+  end
+
 
 end

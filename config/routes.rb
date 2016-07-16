@@ -8,10 +8,6 @@ Rails.application.routes.draw do
                                              :value => "application/vnd.hsdemy.com+json; version=1"},
                                              :defaults => {:format => :json}, :default => true) do
 
-  #    namespace :teachers do
-        #resources :courses, only: [:index]
-      #end
-
       resources :teachers, only: [:index, :show] do
         resources :courses, only: [:index], controller: "teachers/courses"
       end
@@ -19,7 +15,10 @@ Rails.application.routes.draw do
       resources :courses, only: [:index, :show, :create, :update, :destroy] do
         resources :enrollments, only: [:create, :destroy]
       end
-      resources :students, only: [:show, :create]
+
+      resources :registrations, only: [:create]
+
+      resources :sessions, only: [:create]
     end
   end
 

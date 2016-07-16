@@ -5,6 +5,6 @@ class Api::V1::TeachersController < Api::V1::BaseController
   end
 
   def show
-    render json: User.teacher.find(params[:id])
+    render json: User.teacher.find(params[:id]), serializer: TeacherSerializer
   end
 end

@@ -13,6 +13,9 @@ RSpec.describe Api::V1::TeachersController, :type => :controller do
     it "returns a single record" do
       teacher = FactoryGirl.create :teacher
       get :show, id: teacher.id
+
+      puts json_response.inspect
+
       expect(json_response[:teacher][:name]).to eql teacher.name
     end
   end
